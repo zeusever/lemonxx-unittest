@@ -30,6 +30,19 @@ namespace lemon{namespace test{
 		LEMON_CHECK((is_same<add_const<int*>::type,const int*>::value == false));
 	}
 
+	LEMON_UNITTEST_CASE(TypeTraitsUnittest,add_pointer_test)
+	{
+		LEMON_CHECK((is_same<add_pointer<int>::type,int*>::value));
+
+		LEMON_CHECK((is_same<add_pointer<int&>::type,int*>::value));
+		//int * const the int * pointer is const
+		LEMON_CHECK((is_same<add_pointer<int*>::type,int**>::value));
+
+		LEMON_CHECK((is_same<add_pointer<int*&>::type,int**>::value));
+		//const int * ,the pointer int can not modify
+		LEMON_CHECK((is_same<add_pointer<const int>::type,const int*>::value));
+	}
+
 	LEMON_UNITTEST_CASE(TypeTraitsUnittest,add_volatile_test)
 	{
 		LEMON_CHECK((is_same<add_volatile<int>::type,int volatile>::value));

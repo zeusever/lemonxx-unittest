@@ -1,8 +1,8 @@
+#ifdef WIN32
 #include <lemonxx/wmi/wmi.hpp>
 #include <lemonxx/function/bind.hpp>
 #include <lemonxx/unittest/unittest.hpp>
 
-#ifdef WIN32
 
 ATL::CComModule _Module; 
 
